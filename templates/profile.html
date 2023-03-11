@@ -1,0 +1,22 @@
+<h1>Profile</h1>
+
+<h1> Files List</h1>
+
+{% for i in files %}
+
+<tr>
+    <td>{{ i.title }}</td>
+    <td> <a href="{{i.file.url }}"  download>Download</a></td>
+</tr> <br>
+{% endfor %}
+
+
+<form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" id="submit">Save</button>
+</form>
+
+
+
+<a href = "/logout"> Logout<a>
